@@ -4,8 +4,7 @@
 
 @using PierresShoppe.Models;
 @model List<PierresShoppe.Models.Treat>;
-@Html.ActionLink(" Add New Treat", "Create", null, null, new { @class="btn btn-info fa fa-user-plus" })
-@Html.ActionLink(" Home", "Index", "Home", null, new { @class="btn btn-info fa fa-home" })
+
 <h1>Current Treats Offered</h1>
 
 <div class="box">
@@ -14,10 +13,16 @@
     {
       <h3>No treats have been added yet!</h3>
     } 
-
-    @foreach (Treat treat in Model)
+    <ul>
+      @foreach (Treat treat in Model)
+      {
+        <li>@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId })</li>
+      }
+    </ul>
+   
+    @if (User.Identity.IsAuthenticated)
     {
-      <li>@Html.ActionLink($"{treat.TreatName}", "Details", new { id = treat.TreatId })</li>
+      @Html.ActionLink(" Add New Treat", "Create", null, null, new { @class="btn btn-info fa fa-user-plus" })
     }
   </div>  
 </div>

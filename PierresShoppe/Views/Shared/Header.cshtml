@@ -1,4 +1,13 @@
 <div id="header">
-  @Html.ActionLink("Home", "Index", "Home", null, new { @class="btn title-button btn-info fa fa-home"}) | @Html.ActionLink("Account", "Index", "Account", null, new { @class="btn title-button btn-info fa fa-user" })
+  @Html.ActionLink("Home", "Index", "Home", null, new { @class="btn title-button btn-info fa fa-home" }) | @Html.ActionLink("Account", "Index", "Account", null, new { @class="btn title-button btn-info fa fa-user" }) 
+  
   <div id="title">Pierre's Sweet and Savory Treats</div>
+  @if (User.Identity.IsAuthenticated)
+  {
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+      <input type="submit" class="btn title-button btn-info fa fa-user" value="Log Out"/>
+    }
+  }
+  
 </div>

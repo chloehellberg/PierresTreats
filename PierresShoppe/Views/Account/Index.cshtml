@@ -4,20 +4,25 @@
 
 @using System.Security.Claims
 
-<h2>Authentication with Identity</h2>
+<h2>ACCOUNT</h2>
 <hr />
 @if (User.Identity.IsAuthenticated)
 {
-  <p>Hello @User.Identity.Name!</p>
-  @using (Html.BeginForm("LogOff", "Account"))
+  <p>Welcome back, @User.Identity.Name!</p>
+  @* @using (Html.BeginForm("LogOff", "Account"))
   {
     <input type="submit" class="btn btn-default" value="Log out"/>
-  }
+  } *@
 }
 else
 {
   <p>@Html.ActionLink("Register", "Register")</p>
   <p>@Html.ActionLink("Log in", "Login")</p>
 }
-
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<p>For Marketing Purposes Only:</p>
+<ul>
+  <li>Add Treats & Flavors</li>
+  <li>Assign Flavors to Treats and vice versa</li>
+</ul>
+@Html.ActionLink(" Add New Treat", "Create", "Treats", null, new { @class="btn btn-info fa fa-user-plus" })
+@Html.ActionLink(" Add New Flavor", "Create", "Flavors", null, new { @class="btn btn-info fa fa-user-plus" })

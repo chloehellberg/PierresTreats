@@ -4,6 +4,7 @@
 
 #### By _**Chloe Hellberg**_
 
+![](Images/bakery.jpeg)
 
 ## Description
 

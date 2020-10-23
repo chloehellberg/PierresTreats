@@ -1,12 +1,12 @@
 # _Pierre's Sweet and Savory Treats_
 
-#### _Console application for an imaginary bakery shop using C#/.NET, MySQL and Entity Framework and identity to display authorization and many-to-many relationships, Oct 23rd 2020_
+#### _Console application for an imaginary bakery shop using C#/.NET, MySQL and Entity Framework and identity to display authentication and many-to-many relationships, Oct 23rd 2020_
 
 #### By _**Chloe Hellberg**_
 
 ## Description
 
-_This is an MVC web application for an imaginary bakery shop that helps the bakery owner market their sweet and savory treats. Application uses Identity and Authorization so that users have the ability to register, log in and log out of the application._
+_This is an MVC web application for an imaginary bakery shop that helps the bakery owner market their sweet and savory treats. Application uses Identity and Authentication so that users have the ability to register, log in and log out of the application._
   * _Specific Functionality Includes_
     * User should be able to register, then log in and log out.
     * Only registered and logged in users should be able to have create, update, and delete functionality.

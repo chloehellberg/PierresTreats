@@ -4,6 +4,7 @@
 
 #### By _**Chloe Hellberg**_
 
+
 ## Description
 
 _This is an MVC web application for an imaginary bakery shop that helps the bakery owner market their sweet and savory treats. Application uses Identity and Authentication so that users have the ability to register, log in and log out of the application._

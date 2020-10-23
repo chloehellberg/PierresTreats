@@ -9,8 +9,9 @@ namespace PierresShoppe.Models
       this.Flavors = new HashSet<FlavorTreat>();
     }
 
-    public int FlavorId { get; set; }
+    public int TreatId { get; set; }
     public string TreatName { get; set; }
-    public virtual ICollection<FlavorTreat> Flavors { get; set; }
+    public virtual ApplicationUser User { get; set; }
+    public ICollection<FlavorTreat> Flavors { get; set; }
   }
 }

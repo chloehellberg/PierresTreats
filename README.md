@@ -61,9 +61,10 @@ _If you run into issues, please email chloe.hellberg@gmail.com with questions or
 
 _Main Programs_
   * C# and .NET
-  * MySQL
+  * MySQL Workbench
   * Entity Framework
   * Identity
+  * HTML
   * CSS and Bootstrap
 
 ### License

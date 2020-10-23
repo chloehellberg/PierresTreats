@@ -122,13 +122,5 @@ namespace PierresShoppe.Controllers
      _db.SaveChanges();
      return RedirectToAction("Index");
    }
-
-    // [Authorize]
-    // public ActionResult SeeAll()
-    // {
-    //   List<Treat> model = _db.Treats.ToList();
-    //   // ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
-    //   return View(model);
-    // }
   }
 }

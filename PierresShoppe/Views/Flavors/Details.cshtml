@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierresShoppe.Models.Flavor
+@Html.ActionLink("View All Flavors", "Index", null, null, new { @class="btn btn-info fa fa-bolt" })
+@Html.ActionLink("Edit/Assign Treat", "Edit", new { id = Model.FlavorId }, new { @class="btn btn-info fa fa-edit" })
+@Html.ActionLink("Delete", "Delete", new { id = Model.FlavorId }, new { @class="btn btn-info fa fa-times" })
+
+
+<p>@Html.DisplayFor(model => model.FlavorName) | Flavor Details</p>
+<hr />
+<p>@Html.DisplayNameFor(model => model.FlavorName): @Html.DisplayFor(model => model.FlavorName)</p>
+
+@if(@Model.Treats.Count == 0)
+{
+  <p>This flavor profile does not have any treat(s) assigned to it yet.</p>
+}
+else
+{
+  <p>@Html.DisplayFor(model => model.FlavorName)'s Treat(s):</p>
+  <ul>
+  @foreach(var join in Model.Treats)
+  {
+    <li>@join.Treat.TreatName 
+    @Html.ActionLink("Delete", "DeleteTreat", "Flavors", new { joinId = @join.FlavorTreatId }, new { @class="btn btn-info fa fa-times" })
+    </li>
+  }
+  </ul>
+}

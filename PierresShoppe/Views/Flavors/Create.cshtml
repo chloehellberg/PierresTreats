@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierresShoppe.Models.Flavor
+@Html.ActionLink("View All Flavors", "Index", null, null, new { @class="btn btn-info fa fa-bolt" })
+<br><br>
+<p>Add a New Flavor:</p>
+@using (Html.BeginForm())
+{
+  <table>
+    <tr>
+      <td>@Html.LabelFor(model => model.FlavorName)</td>
+      <td>@Html.TextBoxFor(model => model.FlavorName)</td>
+    </tr>
+  </table>
+  <br>
+  <button type="submit" class="btn btn-info fa fa-user-plus"><i class=""> Add</i></button>
+}

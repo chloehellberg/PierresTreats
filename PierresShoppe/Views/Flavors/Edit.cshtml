@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@model PierresShoppe.Models.Flavor
+@Html.ActionLink(" All Flavors", "Index", null, null, new { @class="btn btn-info fa fa-user" })
+<h2>Edit</h2>
+
+<h4>Edit @Html.DisplayFor(model => model.FlavorName)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.FlavorId)
+  <table>
+    <tr>
+      <td>@Html.LabelFor(model => model.FlavorName)</td>
+      <td>@Html.EditorFor(model => model.FlavorName)</td>
+    </tr>
+    <tr>
+        <td>@Html.Label("Select Treat")</td>
+        <td>@Html.DropDownList("TreatId")</td>
+    </tr>
+  </table>
+  <button type="submit" class="btn btn-info fa"><i class="fa-edit"> Save</i></button>
+}

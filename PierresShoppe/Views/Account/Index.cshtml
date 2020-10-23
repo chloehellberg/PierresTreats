@@ -14,11 +14,14 @@
     <li>Add Treats & Flavors</li>
     <li>Assign Flavors to Treats and vice versa</li>
   </ul>
-    @Html.ActionLink(" Add New Treat", "Create", "Treats", null, new { @class="btn btn-info fa fa-user-plus" })
-@Html.ActionLink(" Add New Flavor", "Create", "Flavors", null, new { @class="btn btn-info fa fa-user-plus" }) 
+  <div class="container">
+    @Html.ActionLink(" Add New Treat", "Create", "Treats", null, new { @class="btn btn-info fa fa-plus-square-o" })
+    @Html.ActionLink(" Add New Flavor", "Create", "Flavors", null, new { @class="btn btn-info fa fa-plus-square-o" }) 
+  </div>
 }
 else
 {
   <p>@Html.ActionLink("Register", "Register")</p>
   <p>@Html.ActionLink("Log in", "Login")</p>
 }
+<img id="bagels" src="http://www.dinneralovestory.com/wp-content/uploads/2017/11/IMG_2119-e1509644802851.jpg">

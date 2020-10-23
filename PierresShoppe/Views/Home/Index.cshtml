@@ -1,15 +1,12 @@
 ﻿@{
   Layout = "_Layout";
 }
-<h1>Track all Treat and Flavor Offerings!</h1>
-<div class="row">
-  <div class="col-md-4">
-    @Html.ActionLink(" All Flavors", "Index", "Flavors", null, new { @class="btn btn-info fa fa-user" })
-  </div>
-  <div class="col-md-4">
-    @Html.ActionLink(" All Treats", "Index", "Treats", null, new { @class="btn btn-info fa fa-bolt" })
-  </div>
-  <div class="col-md-4">
-    @Html.ActionLink("Create an Account", "Index", "Account", null, new { @class="btn btn-info fa fa-bars" })
-  </div>
+<h1>Find All Treat and Flavor Offerings at the Bake Shoppe!</h1>
+<div class="container">
+    @Html.ActionLink(" All Flavors", "Index", "Flavors", null, new { @class="btn btn-info fa fa-star" })
+
+    @Html.ActionLink(" All Treats", "Index", "Treats", null, new { @class="btn btn-info fa fa-cutlery" })
+</div>
+<div>
+  <img id="donuts" src="https://cdn.vox-cdn.com/thumbor/eIo72Mj78g6RmtB5ymJhJFyaSo4=/0x0:1280x853/1200x900/filters:focal(538x325:742x529)/cdn.vox-cdn.com/uploads/chorus_image/image/66692485/Allen_Primo_s_180221_3.7.jpg">
 </div>

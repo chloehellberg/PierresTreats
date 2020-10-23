@@ -3,14 +3,14 @@
 }
 
 @model PierresShoppe.Models.Flavor
-@Html.ActionLink("View All Flavors", "Index", null, null, new { @class="btn btn-info fa fa-bolt" })
+@Html.ActionLink("View All Flavors", "Index", null, null, new { @class="btn btn-info fa fa-star" })
 @Html.ActionLink("Edit/Assign Treat", "Edit", new { id = Model.FlavorId }, new { @class="btn btn-info fa fa-edit" })
 @Html.ActionLink("Delete", "Delete", new { id = Model.FlavorId }, new { @class="btn btn-info fa fa-times" })
 
 
 <p>@Html.DisplayFor(model => model.FlavorName) | Flavor Details</p>
 <hr />
-<p>@Html.DisplayNameFor(model => model.FlavorName): @Html.DisplayFor(model => model.FlavorName)</p>
+<p>Flavor Name: @Html.DisplayFor(model => model.FlavorName)</p>
 
 @if(@Model.Treats.Count == 0)
 {

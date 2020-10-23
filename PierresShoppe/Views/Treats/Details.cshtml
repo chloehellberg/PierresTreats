@@ -3,13 +3,13 @@
 }
 
 @model PierresShoppe.Models.Treat;
-@Html.ActionLink(" All Treats", "Index",null, null, new { @class="btn btn-info fa fa-user" })
+@Html.ActionLink(" All Treats", "Index",null, null, new { @class="btn btn-info fa fa-cutlery" })
 @Html.ActionLink(" Edit", "Edit", new { id = Model.TreatId }, new { @class="btn btn-info fa fa-edit" })
 @Html.ActionLink(" Delete", "Delete", new { id = Model.TreatId }, new { @class="btn btn-info fa fa-times" })
 
 <h2>@Html.DisplayFor(model => model.TreatName)'s Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(model => model.TreatName): @Html.DisplayFor(model => model.TreatName)</h3>
+<h3>Treat Name: @Html.DisplayFor(model => model.TreatName)</h3>
 
 @if(@Model.Flavors.Count == 0)
 {

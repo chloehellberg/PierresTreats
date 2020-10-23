@@ -3,10 +3,10 @@
 }
 
 @model PierresShoppe.Models.Flavor
-@Html.ActionLink(" All Flavors", "Index", null, null, new { @class="btn btn-info fa fa-user" })
+@Html.ActionLink(" All Flavors", "Index", null, null, new { @class="btn btn-info fa fa-star" })
 <h2>Are you sure you want to delete this flavor?</h2>
 
-@Html.DisplayNameFor(model => model.FlavorName): @Html.DisplayFor(model => model.FlavorName)
+Flavor Name: @Html.DisplayFor(model => model.FlavorName)
 @using (Html.BeginForm())
 {
   <button type="submit" class="btn btn-info fa "><i class="fa-times"> Delete</i></button>

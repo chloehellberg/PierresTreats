@@ -11,7 +11,7 @@ using System.Security.Claims;
 
 namespace PierresShoppe.Controllers
 {
-  [Authorize]
+  
   public class FlavorsController : Controller
   {
     private readonly PierresShoppeContext _db;
@@ -27,7 +27,17 @@ namespace PierresShoppe.Controllers
       return View(_db.Flavors.ToList());
     }
 
-    
+    [Authorize]
+    public ActionResult Details(int id)
+    {
+      var thisFlavor = _db.Flavors
+      .Include(flavor => flavor.Treats)
+      .ThenInclude(join => join.Treat)
+      .FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View(thisFlavor);
+    }
+
+    [Authorize]
     public ActionResult Create()
     {
       ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");
@@ -46,15 +56,7 @@ namespace PierresShoppe.Controllers
       return RedirectToAction("Index");
     }
 
-    public ActionResult Details(int id)
-    {
-      var thisFlavor = _db.Flavors
-      .Include(flavor => flavor.Treats)
-      .ThenInclude(join => join.Treat)
-      .FirstOrDefault(flavor => flavor.FlavorId == id);
-      return View(thisFlavor);
-    }
-
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
@@ -74,7 +76,7 @@ namespace PierresShoppe.Controllers
       return RedirectToAction("Index");
     }
 
-    
+    [Authorize]
     public ActionResult Delete(int id)
     {
       var thisFlavor = _db.Flavors.FirstOrDefault(flavors => flavors.FlavorId == id);
@@ -90,6 +92,7 @@ namespace PierresShoppe.Controllers
       return RedirectToAction("Index");
     }
 
+  [Authorize]
    public ActionResult DeleteTreat(int joinId)
     {
       var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);

@@ -11,7 +11,7 @@ using System.Security.Claims;
 
 namespace PierresShoppe.Controllers
 {
-  [Authorize]
+  
   public class TreatsController : Controller
   {
     private readonly PierresShoppeContext _db;
@@ -22,14 +22,12 @@ namespace PierresShoppe.Controllers
       _db = db;
     }
 
-    public async Task<ActionResult> Index()
+    public ActionResult Index()
     {
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
-      var userTreats = _db.Treats.Where(entry => entry.User.Id == currentUser.Id).ToList();
-      return View(userTreats);
+     return View(_db.Treats.ToList());
     }
 
+    [Authorize]
     public ActionResult Create()
     {
       ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
@@ -51,6 +49,7 @@ namespace PierresShoppe.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize]
     public ActionResult Details(int id)
     {
       var thisTreat = _db.Treats
@@ -60,6 +59,7 @@ namespace PierresShoppe.Controllers
       return View(thisTreat);
     }
 
+    [Authorize]
     public ActionResult Edit(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
@@ -79,6 +79,7 @@ namespace PierresShoppe.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize]
     public ActionResult AddFlavor(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
@@ -97,6 +98,7 @@ namespace PierresShoppe.Controllers
       return RedirectToAction("Index");
     }
 
+    [Authorize]
     public ActionResult Delete(int id)
     {
       var thisTreat = _db.Treats.FirstOrDefault(treats => treats.TreatId == id);
@@ -112,13 +114,21 @@ namespace PierresShoppe.Controllers
       return RedirectToAction("Index");
     }
 
-    [HttpPost]
-    public ActionResult DeleteCategory(int joinId)
-    {
-      var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
-      _db.FlavorTreat.Remove(joinEntry);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
-    }
+    // [HttpPost]
+    // public ActionResult DeleteCategory(int joinId)
+    // {
+    //   var joinEntry = _db.FlavorTreat.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
+    //   _db.FlavorTreat.Remove(joinEntry);
+    //   _db.SaveChanges();
+    //   return RedirectToAction("Index");
+    // }
+
+    // [Authorize]
+    // public ActionResult SeeAll()
+    // {
+    //   List<Treat> model = _db.Treats.ToList();
+    //   // ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "FlavorName");
+    //   return View(model);
+    // }
   }
 }

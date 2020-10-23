@@ -11,11 +11,14 @@ using System.Security.Claims;
 
 namespace PierresShoppe.Controllers
 {
+  [Authorize]
   public class FlavorsController : Controller
   {
     private readonly PierresShoppeContext _db;
-    public FlavorsController(PierresShoppeContext db)
+    private readonly UserManager<ApplicationUser> _userManager;
+    public FlavorsController(UserManager<ApplicationUser> userManager, PierresShoppeContext db)
     {
+      _userManager = userManager;
       _db = db;
     }
 
@@ -24,6 +27,7 @@ namespace PierresShoppe.Controllers
       return View(_db.Flavors.ToList());
     }
 
+    
     public ActionResult Create()
     {
       ViewBag.TreatId = new SelectList(_db.Treats, "TreatId", "TreatName");

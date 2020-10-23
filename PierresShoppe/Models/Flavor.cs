@@ -6,7 +6,7 @@ namespace PierresShoppe.Models
   {
     public Flavor()
     {
-        this.Treats = new HashSet<FlavorTreat>();
+      this.Treats = new HashSet<FlavorTreat>();
     }
 
     public int FlavorId { get; set; }

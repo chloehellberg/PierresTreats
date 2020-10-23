@@ -10,7 +10,7 @@ namespace PierresShoppe.Models
     }
 
     public int FlavorId { get; set; }
-    public string Name { get; set; }
+    public string TreatName { get; set; }
     public virtual ICollection<FlavorTreat> Flavors { get; set; }
   }
 }
